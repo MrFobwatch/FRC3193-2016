@@ -26,6 +26,9 @@
 #include "Commands/AutoShootLow.h"
 #include "Commands/AutoTurn.h"
 #include "Commands/AutonomousCommand.h"
+#include "Commands/ClimberDown.h"
+#include "Commands/ClimberStop.h"
+#include "Commands/ClimberUp.h"
 #include "Commands/IntakeForward.h"
 #include "Commands/IntakeReverse.h"
 #include "Commands/IntakeStop.h"
@@ -81,6 +84,9 @@ OI::OI() {
 
     // SmartDashboard Buttons
     SmartDashboard::PutData("AutoCDriveShoot", new AutoCDriveShoot());
+    SmartDashboard::PutData("ClimberStop", new ClimberStop());
+    SmartDashboard::PutData("ClimberDown", new ClimberDown());
+    SmartDashboard::PutData("ClimberUp", new ClimberUp());
     SmartDashboard::PutData("ArmStickToggle", new ArmStickToggle());
     SmartDashboard::PutData("ArmDown", new ArmDown());
     SmartDashboard::PutData("ArmUp", new ArmUp());

@@ -31,12 +31,18 @@ void AutoTurn::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void AutoTurn::Execute() {
+	Robot::chassis->robotDrive->ArcadeDrive(0, abs(Robot::chassis->gyro->GetAngle() - m_heading ) * kP, false); // turn to correct heading at a proportional rate
+	Wait(0.004);
 
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool AutoTurn::IsFinished() {
-    return false;
+    if (Robot::chassis->gyro->GetAngle() == m_heading)
+		return true;
+
+	else
+		return false;
 }
 
 // Called once after isFinished returns true
