@@ -29,3 +29,5 @@
 
 #~files
 *~
+*.o
+/Debug/
