@@ -55,7 +55,7 @@ void ArmStop::Execute() {
 			Robot::arm->armRight->Set(0.0);
 		}
 	}
-	SmartDashboard::PutNumber("armAngle", 180 * ( Robot::arm->armAngle->GetAverageVoltage() / 4) );
+	SmartDashboard::PutNumber("armAngle", Robot::arm->CurrentArmAngle());
     SmartDashboard::PutNumber("armEncoder", Robot::arm->armEncoder->Get());
     SmartDashboard::PutBoolean("armLimit", Robot::arm->armLimit->Get());
 }
