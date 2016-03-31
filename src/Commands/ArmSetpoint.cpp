@@ -62,16 +62,3 @@ void ArmSetpoint::End() {
 void ArmSetpoint::Interrupted() {
 
 }
-
-void ArmSetpoint::ChangeArmGoal() {
-	switch(Robot::oi->getcoDriver()->GetPOV(0)) {
-
-	case 90: Robot::m_armGoal = 48; break;
-
-	case 180: Robot::m_armGoal = 2; break;
-
-	case 360 || 0: Robot::m_armGoal =95; break;
-
-	}
-
-}

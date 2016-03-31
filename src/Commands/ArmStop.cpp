@@ -55,9 +55,12 @@ void ArmStop::Execute() {
 			Robot::arm->armRight->Set(0.0);
 		}
 	}
+
+	ChangeArmGoal();
 	SmartDashboard::PutNumber("armAngle", Robot::arm->CurrentArmAngle());
     SmartDashboard::PutNumber("armEncoder", Robot::arm->armEncoder->Get());
     SmartDashboard::PutBoolean("armLimit", Robot::arm->armLimit->Get());
+    SmartDashboard::PutNumber("m_armGoal", Robot::m_armGoal);
 }
 
 // Make this return true when this Command no longer needs to run execute()
@@ -74,4 +77,17 @@ void ArmStop::End() {
 // subsystems is scheduled to run
 void ArmStop::Interrupted() {
 
+}
+
+// Smart button for changing arm angle
+void ArmStop::ChangeArmGoal() {
+	switch(Robot::oi->getcoDriver()->GetPOV(0)) {
+
+	case 90: Robot::m_armGoal = 48; break;
+
+	case 180: Robot::m_armGoal = 2; break;
+
+	case 360 || 0: Robot::m_armGoal = 95; break;
+
+	}
 }
